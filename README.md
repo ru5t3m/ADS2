@@ -28,10 +28,12 @@ The utilization of something.
 
 Usage:
 
-``` MyLinkedList<String> list = new MyLinkedList<>();
+``` 
+MyLinkedList<String> list = new MyLinkedList<>();
 list.add("foo");
 list.add("bar");
 list.add("baz");
 list.remove("bar");
 System.out.println(list.get(1)); // Output: baz
-System.out.println(list.size());```
+System.out.println(list.size()); 
+```
