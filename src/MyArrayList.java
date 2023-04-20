@@ -106,7 +106,10 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            System.out.println("Index is out of bounds");
+        }
+        return (T) MyArrayListElem[index];
     }
 
     @Override
