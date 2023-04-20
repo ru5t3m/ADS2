@@ -114,7 +114,30 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
-        return null;
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Invalid index!");
+        }
+        Node nowNode = head;
+        for (int i = 0; i < index; i++) {
+            nowNode = nowNode.next;
+        }
+        T data = nowNode.data;
+        if (nowNode == head) {
+            head = nowNode.next;
+            if (head != null) {
+                head.prev = null;
+            } else {
+                tail = null;
+            }
+        } else if (nowNode == tail) {
+            tail = nowNode.prev;
+            tail.next = null;
+        } else {
+            nowNode.prev.next = nowNode.next;
+            nowNode.next.prev = nowNode.prev;
+        }
+        size--;
+        return data;
     }
 
     @Override
