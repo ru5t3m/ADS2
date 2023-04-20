@@ -98,7 +98,10 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void clear() {
-
+        for (int i = 0; i < size; i++) {
+            MyArrayListElem[i] = null;
+        }
+        size = 0;
     }
 
     @Override
