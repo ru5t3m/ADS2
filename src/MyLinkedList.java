@@ -115,7 +115,7 @@ public class MyLinkedList<T> implements MyList<T> {
     @Override
     public T remove(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Invalid index!");
+            System.out.println("Invalid index!");
         }
         Node nowNode = head;
         for (int i = 0; i < index; i++) {
@@ -149,7 +149,19 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        return null;
+        if (index<0 || index >= size){
+            throw new IndexOutOfBoundsException("Invalid Index");
+        }
+
+        Node nowNode = head;
+        int nowIndex = 0;
+
+        while (nowIndex<index){
+            nowNode = nowNode.next;
+            nowIndex++;
+        }
+
+        return nowNode.data;
     }
 
     @Override
