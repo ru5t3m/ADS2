@@ -27,4 +27,4 @@ The function "sort()" arranges the items into ascending order within the list.
 The utilization of something.
 
 Usage:
-/// deojf /// 
+``` deojf ```
