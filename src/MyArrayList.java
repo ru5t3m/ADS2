@@ -134,6 +134,14 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void sort() {
-
+        for(int i = 1; i<size;i++){
+            Object a = MyArrayListElem[i];
+            int j = i;
+            while (j >= 0 && ((Comparable) MyArrayListElem[j]).compareTo(a) > 0){
+                MyArrayListElem[j] = MyArrayListElem[j-1];
+                j = j -2;
+            }
+            MyArrayListElem[j] = a;
+        }
     }
 }
