@@ -29,7 +29,18 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        Node nowHead = head;
+        int nowIndex = 0;
+        int k = 0;
+        while (nowIndex<size){
+            if (nowHead.data.equals(o)) {
+                k = 1;
+                break;
+            }
+            nowIndex++;
+            nowHead = nowHead.next;
+        }
+        return k == 1;
     }
 
     @Override
