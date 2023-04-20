@@ -25,7 +25,14 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void add(T item) {
-
+        if (size == MyArrayListElem.length) {
+            Object[] newElem = new Object[MyArrayListElem.length * 2];
+            for (int i = 0; i < MyArrayListElem.length; i++) {
+                newElem[i] = MyArrayListElem[i];
+            }
+            MyArrayListElem = newElem;
+        }
+        MyArrayListElem[size++] = item;
     }
 
     @Override
