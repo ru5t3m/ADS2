@@ -56,7 +56,22 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean remove(T item) {
-        return false;
+        if (contains(item)){
+            int index = 0;
+            Object[] newElem = new Object[CAPACITY];
+            for(int i = 0; i<size; i++){
+                if (!MyArrayListElem[i].equals(item)){
+                    newElem[index] = MyArrayListElem[i];
+                    index++;
+                }
+            }
+            MyArrayListElem = newElem;
+            size--;
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
