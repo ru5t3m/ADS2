@@ -58,7 +58,30 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     @Override
-    public void add(Object item, int index) {
+    public void add(T item, int index) {
+        if (index < 0 || index > size) {
+            System.out.println("Invalid index!");
+        }
+        Node newNode = new Node(item);
+        if (index == 0) {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        } else if (index == size) {
+            tail.next = newNode;
+            newNode.prev = tail;
+            tail = newNode;
+        } else {
+            Node current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            newNode.next = current;
+            newNode.prev = current.prev;
+            current.prev.next = newNode;
+            current.prev = newNode;
+        }
+        size++;
 
     }
 
