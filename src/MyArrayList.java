@@ -15,7 +15,7 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean contains(Object o) {
-        return false;
+        return false;v
     }
 
     @Override
