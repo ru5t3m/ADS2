@@ -12,8 +12,7 @@ public class MyLinkedList<T> implements MyList<T> {
         }
     }
 
-
-
+    private Node head;
 
     @Override
     public int size() {
