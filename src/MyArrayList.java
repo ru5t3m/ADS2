@@ -76,6 +76,23 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public T remove(int index) {
+        if (index < 0 || index >= size){
+            System.out.println("Index is out of bounds");
+        }
+        else {
+            int indexInside = 0;
+            Object[] newElem = new Object[CAPACITY];
+            for(int i = 0; i < size; i++){
+                if (i == index){
+                    continue;
+                }
+                newElem[indexInside] = MyArrayListElem[i];
+                indexInside++;
+            }
+            size--;
+            MyArrayListElem = newElem;
+            return (T) MyArrayListElem;
+        }
         return null;
     }
 
