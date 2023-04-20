@@ -1,7 +1,12 @@
 public class MyArrayList<T> implements MyList<T> {
     private Object[] elements;
     private int size;
-    private static final int DEFAULT_CAPACITY = 10;
+    private static final int CAPACITY = 10;
+
+    public MyArrayList() {
+        elements = new Object[CAPACITY];
+        size = 0;
+    }
 
     @Override
     public int size() {
