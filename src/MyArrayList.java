@@ -37,7 +37,21 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public void add(T item, int index) {
-
+        if (index < 0 || index > size) {
+            System.out.println("Index is out of bounds");
+        }
+        if (size == MyArrayListElem.length) {
+            Object[] newElem = new Object[MyArrayListElem.length * 2];
+            for (int i = 0; i < MyArrayListElem.length; i++) {
+                newElem[i] = MyArrayListElem[i];
+            }
+            MyArrayListElem = newElem;
+        }
+        for (int i = size; i > index; i--) {
+            MyArrayListElem[i] = MyArrayListElem[i - 1];
+        }
+        MyArrayListElem[index] = item;
+        size++;
     }
 
     @Override
