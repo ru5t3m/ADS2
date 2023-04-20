@@ -1,10 +1,10 @@
 public class MyArrayList<T> implements MyList<T> {
-    private Object[] ArrayListElem;
+    private Object[] elements;
     private int size;
     private static final int CAPACITY = 10;
 
     public MyArrayList() {
-        ArrayListElem = new Object[CAPACITY];
+        elements = new Object[CAPACITY];
         size = 0;
     }
 
@@ -15,11 +15,6 @@ public class MyArrayList<T> implements MyList<T> {
 
     @Override
     public boolean contains(Object o) {
-        for (int i = 0; i < size; i++) {
-            if (o.equals(ArrayListElem[i])) {
-                return true;
-            }
-        }
         return false;
     }
 
