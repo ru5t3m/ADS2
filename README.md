@@ -28,7 +28,7 @@ The utilization of something.
 
 Usage:
 
-``` 
+``` java
 MyLinkedList<String> list = new MyLinkedList<>();
 list.add("foo");
 list.add("bar");
