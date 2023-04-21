@@ -1,14 +1,218 @@
+# MyArrayList Class
+## The MyArrayList class is an implementation of the MyList interface that uses an array to store its elements. The class provides methods to manipulate the elements in the array.
+
+# Class Overview
+## The MyArrayList class is defined as follows:
+
+``` java
+public class MyArrayList<T> implements MyList<T> {
+    private Object[] MyArrayListElem;
+    private int size;
+    private static final int CAPACITY = 10;
+
+    public MyArrayList() {
+        MyArrayListElem = new Object[CAPACITY];
+        size = 0;
+    }
+    
+    // methods
+}
+```
+
+## Fields:
+
+``` MyArrayListElem ``` : an array that holds all the elements of created List.
+``` size ``` : the number of elements inside, or the actual size.
+``` CAPACITY ``` : the maximum capacity of an ArrayList.
+
+## Constructor: 
+``` MyArrayList() ``` : creates a new instance of the ```MyArrayList``` class with an initial capacity of ```CAPACITY``` and an empty list of elements.
+
+# Class Methods:
+
+## ```size()```
+Returns the number of elements in the list.
+
+``` java
+public int size() {
+    return size;
+}
+```
+
+## contains(Object o)
+Returns ```true``` if the list contains the specified element, ```false``` otherwise.
+
+``` java
+public boolean contains(Object o) {
+    for (int i = 0; i < size; i++) {
+        if (o.equals(MyArrayListElem[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+```
+
+## add(T item)
+Adds the specified element to the end of the list. If the list is full, the capacity of the list is doubled.
+
+``` java
+public void add(T item) {
+    if (size == MyArrayListElem.length) {
+        Object[] newElem = new Object[MyArrayListElem.length * 2];
+        for (int i = 0; i < MyArrayListElem.length; i++) {
+            newElem[i] = MyArrayListElem[i];
+        }
+        MyArrayListElem = newElem;
+    }
+    MyArrayListElem[size++] = item;
+}
+```
+
+## add(T item, int index)
+Inserts the specified element at the specified position in the list. If the list is full, the capacity of the list is doubled. If the index is out of bounds, an error message is printed.
+
+``` java
+public void add(T item, int index) {
+    if (index < 0 || index > size) {
+        System.out.println("Index is out of bounds");
+    }
+    if (size == MyArrayListElem.length) {
+        Object[] newElem = new Object[MyArrayListElem.length * 2];
+        for (int i = 0; i < MyArrayListElem.length; i++) {
+            newElem[i] = MyArrayListElem[i];
+        }
+        MyArrayListElem = newElem;
+    }
+    for (int i = size; i > index; i--) {
+        MyArrayListElem[i] = MyArrayListElem[i - 1];
+    }
+    MyArrayListElem[index] = item;
+    size++;
+}
+```
+
+## remove(T item)
+Removes the first occurrence of the specified element from the list. If the element is not found, nothing is done.
+
+``` java
+public boolean remove(T item) {
+        if (contains(item)){
+            int index = 0;
+            Object[] newElem = new Object[CAPACITY];
+            for(int i = 0; i<size; i++){
+                if (!MyArrayListElem[i].equals(item)){
+                    newElem[index] = MyArrayListElem[i];
+                    index++;
+                }
+            }
+            MyArrayListElem = newElem;
+            size--;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+```
+
+## remove(int index)
+Removes the element at the specified position in this list. Shifts any subsequent elements to the left (subtracts one from their indices). Returns the element that was removed from the list.
+
+``` java
+public T remove(int index) {
+        if (index < 0 || index >= size){
+            System.out.println("Index is out of bounds");
+        }
+        else {
+            int indexInside = 0;
+            Object[] newElem = new Object[CAPACITY];
+            for(int i = 0; i < size; i++){
+                if (i == index){
+                    continue;
+                }
+                newElem[indexInside] = MyArrayListElem[i];
+                indexInside++;
+            }
+            size--;
+            MyArrayListElem = newElem;
+            return (T) MyArrayListElem;
+        }
+        return null;
+    }
+```
+
+## clear()
+Removes all of the elements from this list.
+
+``` java
+public void clear() {
+        for (int i = 0; i < size; i++) {
+            MyArrayListElem[i] = null;
+        }
+        size = 0;
+    }
+```
+
+## get(int index)
+Returns the element at the specified position in this list.
+
+``` java
+public T get(int index) {
+        if (index < 0 || index >= size) {
+            System.out.println("Index is out of bounds");
+        }
+        return (T) MyArrayListElem[index];
+    }
+```
+
+## indexOf(Object o)
+Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+``` java 
+public int indexOf(Object o) {
+        for (int i = 0; i < size; i++) {
+            if (o.equals(MyArrayListElem[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+```
+
+## lastIndexOf(Object o)
+Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.
+
+``` java
+public int lastIndexOf(Object o) {
+        for (int i = size - 1; i >= 0; i--) {
+            if (o.equals(MyArrayListElem[i])) {
+                return i;
+            }
+        }
+        return -1;
+    }
+```
+
+## sort()
+Sorts the elements of this list in ascending order according to their natural ordering.
+
+``` java
+public void sort() {
+        for(int i = 1; i<size;i++){
+            Object a = MyArrayListElem[i];
+            int j = i;
+            while (j >= 0 && ((Comparable) MyArrayListElem[j]).compareTo(a) > 0){
+                MyArrayListElem[j] = MyArrayListElem[j-1];
+                j = j -2;
+            }
+            MyArrayListElem[j] = a;
+        }
+    }
+```
 
 
-
-
-
-
-
-
-
-
-
+_______________________________________________________________________________________________________________________________________________________
 
 # A class called MyLinkedList.
 ## MyLinkedList is a personalized version of the List interface that enables the arrangement and handling of elements in a sequential manner. The class employs a data structure that is doubly linked, facilitating immediate access to both the initial and final elements, and access to any element by index at a linear pace.
