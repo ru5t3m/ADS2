@@ -1,10 +1,13 @@
-public class MyArrayListStack {
-    private final MyArrayList arrayList;
+import java.util.EmptyStackException;
 
-    public MyArrayListStack(MyArrayList arrayList) {
-        this.arrayList = arrayList;
+public class MyArrayListStack<T> {
+    private MyArrayList<T> stack;
+
+    public MyArrayListStack() {
+        stack = new MyArrayList<>();
     }
-    public void push(Object e){
-        arrayList.add(e);
+
+    public void push(T item) {
+        stack.add(item);
     }
 }
