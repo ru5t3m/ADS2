@@ -11,9 +11,15 @@ public class MyArrayListQueue<T> {
         return queue.isEmpty();
     }
 
-
     public void enqueue(T item) {
         queue.add(item);
+    }
+
+    public T dequeue() {
+        if (isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        return queue.remove(0);
     }
 
 
