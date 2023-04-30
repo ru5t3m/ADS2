@@ -19,4 +19,10 @@ public class MyArrayListStack<T> {
         }
         return stack.remove(stack.size() - 1);
     }
+    public T peek() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.get(stack.size() - 1);
+    }
 }
