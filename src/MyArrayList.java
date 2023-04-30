@@ -144,4 +144,8 @@ public class MyArrayList<T> implements MyList<T> {
             MyArrayListElem[j] = a;
         }
     }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
 }
