@@ -32,7 +32,7 @@ public class MyLinkedList<T> implements MyList<T> {
         Node nowHead = head;
         int nowIndex = 0;
         int k = 0;
-        while (nowIndex<size){
+        while (nowIndex < size) {
             if (nowHead.data.equals(o)) {
                 k = 1;
                 break;
@@ -47,9 +47,9 @@ public class MyLinkedList<T> implements MyList<T> {
     public void add(T item) {
         Node currNode = new Node(item);
 
-        if (head == null && tail == null){
+        if (head == null && tail == null) {
             head = currNode;
-        }else{
+        } else {
             tail.next = currNode;
             currNode.prev = tail;
         }
@@ -149,14 +149,14 @@ public class MyLinkedList<T> implements MyList<T> {
 
     @Override
     public T get(int index) {
-        if (index<0 || index >= size){
+        if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Invalid Index");
         }
 
         Node nowNode = head;
         int nowIndex = 0;
 
-        while (nowIndex<index){
+        while (nowIndex < index) {
             nowNode = nowNode.next;
             nowIndex++;
         }
@@ -197,7 +197,7 @@ public class MyLinkedList<T> implements MyList<T> {
         while (current != null) {
             T data = current.data;
             Node previous = current.prev;
-            while (previous != null && ((Comparable)previous.data).compareTo(data) > 0) {
+            while (previous != null && ((Comparable) previous.data).compareTo(data) > 0) {
                 previous.next.data = previous.data;
                 previous = previous.prev;
             }
@@ -209,4 +209,12 @@ public class MyLinkedList<T> implements MyList<T> {
             current = current.next;
         }
     }
+
+    public void addFirst(T item) {
+        Node newNode = new Node(item);
+        newNode.next = head;
+        head = newNode;
+        size++;
+    }
 }
+
