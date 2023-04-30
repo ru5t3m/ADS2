@@ -224,6 +224,13 @@ public class MyLinkedList<T> implements MyList<T> {
         return item;
     }
 
+    public T getFirst() {
+        return head.data;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
 
 }
 
