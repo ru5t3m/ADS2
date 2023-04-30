@@ -29,4 +29,7 @@ public class MyArrayListQueue<T> {
         return queue.get(0);
     }
 
+    public int size() {
+        return queue.size();
+    }
 }
