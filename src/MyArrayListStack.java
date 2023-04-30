@@ -7,6 +7,9 @@ public class MyArrayListStack<T> {
         stack = new MyArrayList<>();
     }
 
+    public boolean isEmpty() {
+        return stack.size() == 0;
+    }
     public void push(T item) {
         stack.add(item);
     }
