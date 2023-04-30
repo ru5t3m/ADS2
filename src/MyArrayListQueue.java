@@ -7,8 +7,14 @@ public class MyArrayListQueue<T> {
         queue = new MyArrayList<>();
     }
 
+    public boolean isEmpty() {
+        return queue.isEmpty();
+    }
+
+
     public void enqueue(T item) {
         queue.add(item);
     }
+
 
 }
