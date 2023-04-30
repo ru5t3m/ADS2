@@ -228,6 +228,20 @@ public class MyLinkedList<T> implements MyList<T> {
         return head.data;
     }
 
+    public void addLast(T item) {
+        if (isEmpty()) {
+            addFirst(item);
+        } else {
+            Node node = new Node(item);
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = node;
+            size++;
+        }
+    }
+
     public boolean isEmpty() {
         return size == 0;
     }
