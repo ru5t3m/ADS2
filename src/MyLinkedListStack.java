@@ -15,4 +15,11 @@ public class MyLinkedListStack<T> {
         stack.addFirst(item);
     }
 
+    public T pop() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+        return stack.removeFirst();
+    }
+
 }
