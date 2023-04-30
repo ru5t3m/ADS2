@@ -217,17 +217,6 @@ public class MyLinkedList<T> implements MyList<T> {
         size++;
     }
 
-    public T removeFirst() {
-        T item = head.data;
-        head = head.next;
-        size--;
-        return item;
-    }
-
-    public T getFirst() {
-        return head.data;
-    }
-
     public void addLast(T item) {
         if (isEmpty()) {
             addFirst(item);
@@ -241,6 +230,26 @@ public class MyLinkedList<T> implements MyList<T> {
             size++;
         }
     }
+
+    public T removeFirst() {
+        T item = head.data;
+        head = head.next;
+        size--;
+        return item;
+    }
+
+    public T getFirst() {
+        return head.data;
+    }
+
+    public T getLast() {
+        Node current = head;
+        while (current.next != null) {
+            current = current.next;
+        }
+        return current.data;
+    }
+
 
     public boolean isEmpty() {
         return size == 0;
