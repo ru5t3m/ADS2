@@ -4,5 +4,7 @@ public class MyArrayListStack {
     public MyArrayListStack(MyArrayList arrayList) {
         this.arrayList = arrayList;
     }
-
+    public void push(Object e){
+        arrayList.add(e);
+    }
 }
