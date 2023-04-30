@@ -29,4 +29,8 @@ public class MyLinkedListQueue<T> {
         return queue.get(0);
     }
 
+    public int size() {
+        return queue.size();
+    }
+
 }
