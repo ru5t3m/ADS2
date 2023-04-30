@@ -216,5 +216,14 @@ public class MyLinkedList<T> implements MyList<T> {
         head = newNode;
         size++;
     }
+
+    public T removeFirst() {
+        T item = head.data;
+        head = head.next;
+        size--;
+        return item;
+    }
+
+
 }
 
