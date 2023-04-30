@@ -7,6 +7,10 @@ public class MyLinkedListStack<T> {
         stack = new MyLinkedList<>();
     }
 
+    public boolean isEmpty() {
+        return stack.isEmpty();
+    }
+
     public void push(T item) {
         stack.addFirst(item);
     }
