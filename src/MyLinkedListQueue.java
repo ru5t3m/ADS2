@@ -7,4 +7,7 @@ public class MyLinkedListQueue<T> {
         queue = new MyLinkedList<>();
     }
 
+    public void enqueue(T item) {
+        queue.add(item);
+    }
 }
